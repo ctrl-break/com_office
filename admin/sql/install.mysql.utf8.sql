@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS `#__office`;
 
 CREATE TABLE `#__office` (
 	`id`       INT(11)     NOT NULL AUTO_INCREMENT,
+	`catid`	    INT(11)    NOT NULL DEFAULT '0',
 	`title` TINYTEXT NOT NULL,
 	`address` TINYTEXT NOT NULL,
 	`note` TINYTEXT,

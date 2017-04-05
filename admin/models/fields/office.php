@@ -35,8 +35,9 @@ class JFormFieldOffice extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,title,address,note,phones,email');
+		$query->select('#__office.id as id,title,address,note,phones,email,#__categories.title as category,catid');
 		$query->from('#__office');
+		$query->leftJoin('#__categories on catid=#__categories.id');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
@@ -47,7 +48,8 @@ class JFormFieldOffice extends JFormFieldList
 		{
 			foreach ($messages as $message)
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->title);
+				$options[] = JHtml::_('select.option', $message->id, $message->title .
+				                      ($message->catid ? ' (' . $message->category . ')' : ''));
 			}
 		}
 

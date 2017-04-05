@@ -10,6 +10,12 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+// Set some global property
+$document = JFactory::getDocument();
+
+// Require helper file
+JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
+
 // Get an instance of the controller prefixed by Office
 $controller = JControllerLegacy::getInstance('Office');
 

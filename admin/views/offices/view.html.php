@@ -50,6 +50,9 @@ class OfficeViewOffices extends JViewLegacy
 			return false;
 		}
 
+		// Set the submenu
+		OfficeHelper::addSubmenu('offices');		
+
 		// Set the toolbar
 		$this->addToolBar();
 
