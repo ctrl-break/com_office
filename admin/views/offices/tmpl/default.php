@@ -14,6 +14,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 $listOrder     = $this->escape($this->filter_order);
 $listDirn      = $this->escape($this->filter_order_Dir);
+//var_dump($this);
 ?>
 <form action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
 	<div class="row-fluid">
@@ -34,8 +35,12 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="30%">
+			<th width="20%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_OFFICES_NAME', 'title', $listDirn, $listOrder); ?>
+			</th>
+
+			<th width="10%">
+				<?php echo JText::_('COM_OFFICE_CITY'); ?>
 			</th>
 
 			<th width="20%">
@@ -78,6 +83,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_OFFICE_EDIT_OFFICE'); ?>">
 								<?php echo $row->title; ?>
 							</a>
+						</td>
+						<td>
+								<?php echo OfficeHelper::getCategoryName($row->catid); ?>
 						</td>
 						<td>
 								<?php echo $row->address; ?>

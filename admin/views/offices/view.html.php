@@ -26,10 +26,12 @@ class OfficeViewOffices extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		
+
 		// Get application
 		$app = JFactory::getApplication();
 		$context = "office.list.admin.office";
+
+		//var_dump($this);
 		// Get data from the model
 		$this->items			= $this->get('Items');
 		$this->pagination		= $this->get('Pagination');
@@ -86,7 +88,7 @@ class OfficeViewOffices extends JViewLegacy
 	 *
 	 * @return void
 	 */
-	protected function setDocument() 
+	protected function setDocument()
 	{
 		$document = JFactory::getDocument();
 		$document->setTitle(JText::_('COM_OFFICE_ADMINISTRATION'));
