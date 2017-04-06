@@ -34,9 +34,21 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="90%">
+			<th width="30%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_OFFICES_NAME', 'title', $listDirn, $listOrder); ?>
 			</th>
+
+			<th width="20%">
+				<?php echo JText::_('COM_OFFICE_ADDRESS'); ?>
+			</th>
+
+			<th width="20%">
+				<?php echo JText::_('COM_OFFICE_PHONES'); ?>
+			</th>
+			<th width="20%">
+				<?php echo JText::_('COM_OFFICE_EMAIL'); ?>
+			</th>
+
 			<th width="5%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_PUBLISHED', 'published', $listDirn, $listOrder); ?>
 			</th>
@@ -47,7 +59,7 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="5">
+				<td colspan="8">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -67,6 +79,15 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 								<?php echo $row->title; ?>
 							</a>
 						</td>
+						<td>
+								<?php echo $row->address; ?>
+						</td>
+						<td>
+								<?php echo $row->phones; ?>
+						</td>
+						<td>
+								<?php echo $row->email; ?>
+						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'offices.', true, 'cb'); ?>
 						</td>
@@ -84,4 +105,3 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
 	<?php echo JHtml::_('form.token'); ?>
 </form>
-
