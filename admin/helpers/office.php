@@ -48,6 +48,11 @@ abstract class OfficeHelper
 		}
 	}
 
+
+	/*
+			Return category name
+
+	 */
 		public static function getCategoryName($id = 0) {
 			// Initialize variables.
 			$db    = JFactory::getDbo();

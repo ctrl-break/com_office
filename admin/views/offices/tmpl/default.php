@@ -40,7 +40,7 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			</th>
 
 			<th width="10%">
-				<?php echo JText::_('COM_OFFICE_CITY'); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_CITY', 'catid', $listDirn, $listOrder); ?>
 			</th>
 
 			<th width="20%">

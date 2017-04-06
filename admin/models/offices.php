@@ -75,7 +75,7 @@ class OfficeModelOffices extends JModelList
 		}
 
 		// Add the list ordering clause.
-		$orderCol	= $this->state->get('list.ordering', 'id');
+		$orderCol	= $this->state->get('list.ordering', 'catid');
 		$orderDirn 	= $this->state->get('list.direction', 'asc');
 
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
