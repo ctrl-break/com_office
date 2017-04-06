@@ -67,7 +67,7 @@ class OfficeModelOffice extends JModelAdmin
 	 *
 	 * @return string	Script files
 	 */
-	public function getScript() 
+	public function getScript()
 	{
 		return 'administrator/components/com_office/models/forms/office.js';
 	}
@@ -93,4 +93,25 @@ class OfficeModelOffice extends JModelAdmin
 
 		return $data;
 	}
+
+	protected function prepareTable($form)
+	{
+		$cat = OfficeHelper::getCategoryName($form->catid);
+
+		$addr = $cat . $form->address;
+
+		$form->coords = "";
+
+		$geocode = file_get_contents('https://geocode-maps.yandex.ru/1.x/?geocode=' . $addr );
+		$xml = new SimpleXMLElement($geocode);
+
+		$xml->registerXPathNamespace('ymaps', 'http://maps.yandex.ru/ymaps/1.x');
+		$xml->registerXPathNamespace('gml', 'http://www.opengis.net/gml');
+
+		$result = $xml->xpath('/ymaps:ymaps/ymaps:GeoObjectCollection/gml:featureMember/ymaps:GeoObject/gml:Point/gml:pos');
+
+	  $form->coords .= $result[0];
+	}
+
+
 }

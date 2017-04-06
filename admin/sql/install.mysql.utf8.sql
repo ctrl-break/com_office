@@ -7,8 +7,9 @@ CREATE TABLE `#__office` (
 	`note` TINYTEXT,
 	`phones` TINYTEXT NOT NULL,
 	`email` TINYTEXT,
-	`coord_x` FLOAT (10,10),
-	`coord_y` FLOAT (10,10),
+	`coords` TINYTEXT,
+	`coord_x` TINYTEXT,
+	`coord_y` TINYTEXT,
 	`published` tinyint(4) NOT NULL,
 	`catid`	    int(11)    NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`)
