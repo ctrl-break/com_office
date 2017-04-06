@@ -94,6 +94,11 @@ class OfficeModelOffice extends JModelAdmin
 		return $data;
 	}
 
+
+	/*
+		Get coordinates from yandex maps
+	 */
+
 	protected function prepareTable($form)
 	{
 		$cat = OfficeHelper::getCategoryName($form->catid);
@@ -110,7 +115,11 @@ class OfficeModelOffice extends JModelAdmin
 
 		$result = $xml->xpath('/ymaps:ymaps/ymaps:GeoObjectCollection/gml:featureMember/ymaps:GeoObject/gml:Point/gml:pos');
 
-	  $form->coords .= $result[0];
+		$coords = explode(" ", $result[0]);
+
+		$form->coords = $coords[1] . " " . $coords[0];
+
+		$form->published = 1;
 	}
 
 
