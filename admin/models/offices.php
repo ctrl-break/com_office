@@ -16,7 +16,6 @@ defined('_JEXEC') or die('Restricted access');
  */
 class OfficeModelOffices extends JModelList
 {
-
 	/**
 	 * Constructor.
 	 *
@@ -32,13 +31,12 @@ class OfficeModelOffices extends JModelList
 			$config['filter_fields'] = array(
 				'id',
 				'title',
-				'address'
+				'published'
 			);
 		}
 
 		parent::__construct($config);
 	}
-
 
 	/**
 	 * Method to build an SQL query to load the list data.
@@ -55,33 +53,32 @@ class OfficeModelOffices extends JModelList
 		$query->select('*')
 			  ->from($db->quoteName('#__office'));
 
-				// Filter: like / search
-				$search = $this->getState('filter.search');
+		// Filter: like / search
+		$search = $this->getState('filter.search');
 
-				if (!empty($search))
-				{
-					$like = $db->quote('%' . $search . '%');
-					$query->where('title LIKE ' . $like);
-				}
-/*
-				// Filter by published state
-				$published = $this->getState('filter.published');
+		if (!empty($search))
+		{
+			$like = $db->quote('%' . $search . '%');
+			$query->where('title LIKE ' . $like);
+		}
 
-				if (is_numeric($published))
-				{
-					$query->where('published = ' . (int) $published);
-				}
-				elseif ($published === '')
-				{
-					$query->where('(published IN (0, 1))');
-				}
-*/
-				// Add the list ordering clause.
-				$orderCol	= $this->state->get('list.ordering', 'title');
-				$orderDirn 	= $this->state->get('list.direction', 'asc');
+		// Filter by published state
+		$published = $this->getState('filter.published');
 
-				$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+		if (is_numeric($published))
+		{
+			$query->where('published = ' . (int) $published);
+		}
+		elseif ($published === '')
+		{
+			$query->where('(published IN (0, 1))');
+		}
 
+		// Add the list ordering clause.
+		$orderCol	= $this->state->get('list.ordering', 'title');
+		$orderDirn 	= $this->state->get('list.direction', 'asc');
+
+		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 
 		return $query;
 	}

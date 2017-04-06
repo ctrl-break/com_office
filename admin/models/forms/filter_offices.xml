@@ -19,15 +19,4 @@
 			<option value="">JOPTION_SELECT_PUBLISHED</option>
 		</field>
 	</fields>
-	<fields name="list">
-		<field
-			name="limit"
-			type="limitbox"
-			class="input-mini"
-			default="25"
-			label="COM_CONTENT_LIST_LIMIT"
-			description="COM_OFFICE_LIST_LIMIT_DESC"
-			onchange="this.form.submit();"
-		/>
-	</fields>
 </form>

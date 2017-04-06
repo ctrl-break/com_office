@@ -41,7 +41,7 @@ class OfficeModelOffice extends JModelItem
 	/**
 	 * Get the message
 	 *
-	 * @param   integer  $id  Greeting Id
+	 * @param   integer  $id  Title Id
 	 *
 	 * @return  string        Fetched String from Table for relevant Id
 	 */
@@ -65,7 +65,7 @@ class OfficeModelOffice extends JModelItem
 			$table->load($id);
 
 			// Assign the message
-			$this->messages[$id] = $table->greeting;
+			$this->messages[$id] = $table->title;
 		}
 
 		return $this->messages[$id];

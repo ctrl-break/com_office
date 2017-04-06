@@ -35,14 +35,14 @@ class JFormFieldOffice extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('#__office.id as id,title,address,note,phones,email,#__categories.title as category,catid');
+		$query->select('#__office.id as id,title,#__categories.title as category,catid');
 		$query->from('#__office');
 		$query->leftJoin('#__categories on catid=#__categories.id');
+		// Retrieve only published items
+		$query->where('#__office.published = 1');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
-
-		// var_dump($messages);
 
 		if ($messages)
 		{

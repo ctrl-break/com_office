@@ -12,8 +12,9 @@ defined('_JEXEC') or die('Restricted access');
 
 // Set some global property
 $document = JFactory::getDocument();
+$document->addStyleDeclaration('.icon-office {background-image: url(../media/com_office/images/tux-16x16.png);}');
 
-// Require helper file
+// require helper file
 JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
 
 // Get an instance of the controller prefixed by Office

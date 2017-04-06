@@ -3,10 +3,14 @@
 
 	<name>COM_OFFICE</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>April 2017</creationDate>
-	<author>fox</author>
+	<creationDate>February 2015</creationDate>
+	<author>John Doe</author>
+	<authorEmail>john.doe@example.org</authorEmail>
+	<authorUrl>http://www.example.org</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.13</version>
+	<version>0.0.12</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_OFFICE_DESCRIPTION</description>
 
@@ -42,9 +46,14 @@
 		<language tag="en-GB">en-GB/en-GB.com_office.ini</language>
         </languages>
 
+	<media destination="com_office" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu link='index.php?option=com_office'>COM_OFFICE_MENU</menu>
+		<menu link='index.php?option=com_office' img="../media/com_office/images/tux-16x16.png">COM_OFFICE_MENU</menu>
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied
@@ -54,6 +63,7 @@
 			<filename>index.html</filename>
 			<filename>office.php</filename>
 			<filename>controller.php</filename>
+			<filename>access.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 			<!-- tables files section -->
@@ -64,6 +74,7 @@
 			<folder>views</folder>
 			<!-- controllers files section -->
 			<folder>controllers</folder>
+			<!-- helpers files section -->
 			<folder>helpers</folder>
 		</files>
 		<languages folder="admin/language">

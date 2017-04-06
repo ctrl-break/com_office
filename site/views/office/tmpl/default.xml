@@ -11,8 +11,8 @@
 			<field
 					name="id"
 					type="office"
-					label="COM_OFFICE_OFFICE_FIELD_GREETING_LABEL"
-					description="COM_OFFICE_OFFICE_FIELD_GREETING_DESC"
+					label="COM_OFFICE_OFFICE_FIELD_TITLE_LABEL"
+					description="COM_OFFICE_OFFICE_FIELD_TITLE_DESC"
 					/>
 		</fieldset>
 	</fields>

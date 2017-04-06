@@ -19,32 +19,30 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since   1.6
  */
-abstract class OfficeHelper extends JHelperContent
+abstract class OfficeHelper
 {
 	/**
 	 * Configure the Linkbar.
-	 *
-	 * @return Bool
 	 */
-
-	public static function addSubmenu($submenu)
+	public static function addSubmenu($submenu) 
 	{
-		JHtmlSidebar::addEntry(
+		JSubMenuHelper::addEntry(
 			JText::_('COM_OFFICE_SUBMENU_MESSAGES'),
 			'index.php?option=com_office',
-			$submenu == 'offices'
+			$submenu == 'messages'
 		);
 
-		JHtmlSidebar::addEntry(
+		JSubMenuHelper::addEntry(
 			JText::_('COM_OFFICE_SUBMENU_CATEGORIES'),
 			'index.php?option=com_categories&view=categories&extension=com_office',
 			$submenu == 'categories'
 		);
 
-		// Set some global property
+		// set some global property
 		$document = JFactory::getDocument();
-
-		if ($submenu == 'categories')
+		$document->addStyleDeclaration('.icon-48-office ' .
+										'{background-image: url(../media/com_office/images/tux-48x48.png);}');
+		if ($submenu == 'categories') 
 		{
 			$document->setTitle(JText::_('COM_OFFICE_ADMINISTRATION_CATEGORIES'));
 		}

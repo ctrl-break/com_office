@@ -46,18 +46,14 @@ class OfficeViewOffice extends JViewLegacy
 			return false;
 		}
 
-
 		// Set the toolbar
 		$this->addToolBar();
 
 		// Display the template
 		parent::display($tpl);
 
-
- 		// Set the document
- 		$this->setDocument();
-
-
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
@@ -92,18 +88,20 @@ class OfficeViewOffice extends JViewLegacy
 			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
 		);
 	}
-
 	/**
 	 * Method to set up the document properties
 	 *
 	 * @return void
 	 */
-	protected function setDocument()
+	protected function setDocument() 
 	{
 		$isNew = ($this->item->id < 1);
 		$document = JFactory::getDocument();
 		$document->setTitle($isNew ? JText::_('COM_OFFICE_OFFICE_CREATING') :
                 JText::_('COM_OFFICE_OFFICE_EDITING'));
+		$document->addScript(JURI::root() . $this->script);
+		$document->addScript(JURI::root() . "/administrator/components/com_office"
+		                                  . "/views/office/submitbutton.js");
+		JText::script('COM_OFFICE_OFFICE_ERROR_UNACCEPTABLE');
 	}
-
 }
