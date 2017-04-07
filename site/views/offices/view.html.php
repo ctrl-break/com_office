@@ -15,8 +15,11 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class OfficeViewOffice extends JViewLegacy
+class OfficeViewOffices extends JViewLegacy
 {
+
+	protected $offices = [];
+
 	/**
 	 * Display the Office view
 	 *
@@ -26,8 +29,13 @@ class OfficeViewOffice extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
+
+		$items = $this->get('Items');
+
+		var_dump($items);
+
 		// Assign data to the view
-		$this->msg = $this->get('Msg');
+		$this->offices = $items;
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
