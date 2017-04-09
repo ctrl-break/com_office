@@ -1,9 +1,6 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_office
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -43,16 +40,16 @@ $document->addScript('/media/com_office/js/office.js');
         <img src="/media/com_office/images/dot.png" alt="">
       </td>
       <td class="w65 addr_col">
-          <p><strong><?php echo $value->title;?></strong></p>
-          <p><?php echo $value->city;?> <?php echo $value->address;?></p>
-          <?php if( !is_null($value->note)) : ?>
-            <p><?php echo $value->note;?></p>
+          <p><strong><?php echo $value->title; ?></strong></p>
+          <p><?php echo $value->city; ?> <?php echo $value->address; ?></p>
+          <?php if (!is_null($value->note)) : ?>
+            <p><?php echo $value->note; ?></p>
           <?php endif; ?>
       </td>
       <td class="w3 cont_col">
-          <p><?php echo $value->phones;?></p>
-          <?php if( !is_null($value->email)) : ?>
-            <p><?php echo $value->email;?></p>
+          <p><?php echo $value->phones; ?></p>
+          <?php if (!is_null($value->email)) : ?>
+            <p><a href="mailto:<?php echo $value->email; ?>"><?php echo $value->email; ?></a></p>
           <?php endif; ?>
       </td>
       </tr>
@@ -66,25 +63,51 @@ ymaps.ready(function(){
 	var mapbox = new ymaps.Map("mapbox", {
 		center: [52.36006582, 54.17460632],
 		zoom: 	4,
-		controls: []
-  	});
+		behaviors: ['default', 'scrollZoom']
+    },
+    {
+        searchControlProvider: 'yandex#search'
+    }),
 
+      clusterer = new ymaps.Clusterer({
+      preset: 'islands#invertedBlueClusterIcons',
+      groupByCoordinates: false,
+      clusterDisableClickZoom: true,
+      clusterHideIconOnBalloonOpen: false,
+      geoObjectHideIconOnBalloonOpen: false
+  }),
+
+      getPointData = function (title, addr) {
+      return {
+          balloonContentHeader: title,
+          balloonContentBody: addr,
+          clusterCaption: title
+      };
+  },
+
+      getPointOptions = function () {
+      return {
+          preset: 'islands#blueIcon'
+      };
+  },
+  geoObjects = [];
+
+<?php $count = 0; ?>
 <?php foreach ($this->offices as $value): ?>
-
-    <?php $count = 0; ?>
-    var addr_<?php echo $count; ?> = new ymaps.Placemark([<?php echo $value->coords; ?>], {
-      // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-      balloonContentHeader:   '<?php echo $value->title; ?>',
-      balloonContentBody:   '<?php echo $value->city . " " . $value->address; ?>',
-      balloonContentFooter:  '<?php echo $value->phones; ?>'
-    });
-
-    mapbox.geoObjects.add(addr_<?php echo $count; ?>);
-    <?php $count++; ?>
+    geoObjects[<?php echo $count++; ?>] = new ymaps.Placemark([<?php echo $value->coords; ?>],
+        getPointData('<?php echo $value->title; ?>', '<?php echo $value->city.' '.$value->address; ?>'),
+        getPointOptions());
 <?php endforeach; ?>
 
-});
+    clusterer.options.set({
+        gridSize: 80,
+        clusterDisableClickZoom: true
+    });
 
+    clusterer.add(geoObjects);
+    mapbox.geoObjects.add(clusterer);
+});
 </script>
+
 
 </div>
