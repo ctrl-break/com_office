@@ -117,7 +117,7 @@ class OfficeModelOffice extends JModelAdmin
 
 		$coords = explode(" ", $result[0]);
 
-		$form->coords = $coords[1] . " " . $coords[0];
+		$form->coords = $coords[1] . "," . $coords[0];
 
 		$form->published = 1;
 	}

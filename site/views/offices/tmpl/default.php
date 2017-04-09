@@ -10,8 +10,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+JHtml::_('jquery.framework');
+
 $document = JFactory::getDocument();
 $document->addStyleSheet('/media/com_office/css/com_office.css');
+$document->addScript('//api-maps.yandex.ru/2.1/?lang=ru-RU');
 $document->addScript('/media/com_office/js/office.js');
 
 ?>
@@ -56,8 +59,32 @@ $document->addScript('/media/com_office/js/office.js');
 <?php endforeach; ?>
 </table>
 
-<div class="mapbox">
+<div id="mapbox" style="width:auto;height:400px;"></div>
 
-</div>
+<script type="text/javascript">
+ymaps.ready(function(){
+	var mapbox = new ymaps.Map("mapbox", {
+		center: [52.36006582, 54.17460632],
+		zoom: 	4,
+		controls: []
+  	});
+
+<?php foreach ($this->offices as $value): ?>
+
+    <?php $count = 0; ?>
+    var addr_<?php echo $count; ?> = new ymaps.Placemark([<?php echo $value->coords; ?>], {
+      // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+      balloonContentHeader:   '<?php echo $value->title; ?>',
+      balloonContentBody:   '<?php echo $value->city . " " . $value->address; ?>',
+      balloonContentFooter:  '<?php echo $value->phones; ?>'
+    });
+
+    mapbox.geoObjects.add(addr_<?php echo $count; ?>);
+    <?php $count++; ?>
+<?php endforeach; ?>
+
+});
+
+</script>
 
 </div>
