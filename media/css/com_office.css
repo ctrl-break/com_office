@@ -1,0 +1,62 @@
+.offices p{
+  margin-bottom: 3px;
+}
+
+.offices{
+  width: 100%;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 1px 10px;
+}
+
+.offices tr, .offices td{
+  border: none;
+}
+
+.offices tr{
+  margin-bottom: 10px;
+}
+
+.offices .cont_col{
+  padding-left: 30px;
+  color: #0093dd;
+  border: 1px #0093dd;
+  border-left-style: solid;
+}
+
+.office_box .w05{
+  width: 5%;
+}
+.office_box .w1{
+  width: 10%;
+}
+.office_box .w2{
+  width: 20%;
+}
+.office_box .w3{
+  width: 30%;
+}
+.office_box .w4{
+  width: 40%;
+}
+.office_box .w5{
+  width: 50%;
+}
+.office_box .w6{
+  width: 60%;
+}
+.office_box .w65{
+  width: 65%;
+}
+.office_box .w7{
+  width: 70%;
+}
+.office_box .w8{
+  width: 80%;
+}
+.office_box .w9{
+  width: 90%;
+}
+.office_box .w10{
+  width: 100%;
+}
