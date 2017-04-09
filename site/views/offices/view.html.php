@@ -32,7 +32,7 @@ class OfficeViewOffices extends JViewLegacy
 
 		$items = $this->get('Items');
 
-		var_dump($items);
+		//var_dump($items);
 
 		// Assign data to the view
 		$this->offices = $items;

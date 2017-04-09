@@ -36,6 +36,7 @@
 		<filename>controller.php</filename>
 		<folder>views</folder>
 		<folder>models</folder>
+		<folder>helpers</folder>
 	</files>
 
         <languages folder="site/language">
@@ -45,6 +46,8 @@
 	<media destination="com_office" folder="media">
 		<filename>index.html</filename>
 		<folder>images</folder>
+		<folder>css</folder>
+		<folder>js</folder>
 	</media>
 
 	<administration>
