@@ -31,6 +31,7 @@ class OfficeViewOffices extends JViewLegacy
 	{
 
 		$items = $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
 
 		//var_dump($items);
 

@@ -22,7 +22,7 @@ class OfficeModelOffices extends JModelList
 
         $query->from('#__office as off');
 
-        $query->join('INNER', 'fk7qs_categories AS cat ON off.catid = cat.id ');
+        $query->join('INNER', '#__categories AS cat ON off.catid = cat.id ');
 
         $query->where('off.published = 1');
         $query->order('city ASC');

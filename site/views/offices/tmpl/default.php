@@ -7,7 +7,10 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+JHtml::_('behavior.framework');
+
 JHtml::_('jquery.framework');
+
 
 $document = JFactory::getDocument();
 $document->addStyleSheet('/media/com_office/css/com_office.css');
@@ -19,42 +22,48 @@ $document->addScript('/media/com_office/js/office.js');
 
 <?php echo JText::_('COM_OFFICE_MAIN_TITLE'); ?>
 
-<form class="com_office" action="" method="post">
+<form class="com_office" action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
   <select class="office_choise" name="">
       <option value="">Пункт 1</option>
       <option value="">Пункт 2</option>
   </select>
+
   <div class="showmap">
     <label for="showmap">
       <input type="checkbox" name="showmap"> Показать на карте
     </label>
   </div>
+
+  <table class="table offices">
+  <?php foreach ($this->offices as $value):  ?>
+        <tr>
+        <td class="w05">
+          <img src="/media/com_office/images/dot.png" alt="">
+        </td>
+        <td class="w65 addr_col">
+            <p><strong><?php echo $value->title; ?></strong></p>
+            <p><?php echo $value->city; ?> <?php echo $value->address; ?></p>
+            <?php if (!is_null($value->note)) : ?>
+              <p><?php echo $value->note; ?></p>
+            <?php endif; ?>
+        </td>
+        <td class="w3 cont_col">
+            <p><?php echo $value->phones; ?></p>
+            <?php if (!is_null($value->email)) : ?>
+              <p><a href="mailto:<?php echo $value->email; ?>"><?php echo $value->email; ?></a></p>
+            <?php endif; ?>
+        </td>
+        </tr>
+  <?php endforeach; ?>
+  </table>
+
+  <div class="pagination">
+    <?php echo $this->pagination->getListFooter(); ?>
+  </div>
+
 </form>
 
-
-
-<table class="table offices">
-<?php foreach ($this->offices as $value):  ?>
-      <tr>
-      <td class="w05">
-        <img src="/media/com_office/images/dot.png" alt="">
-      </td>
-      <td class="w65 addr_col">
-          <p><strong><?php echo $value->title; ?></strong></p>
-          <p><?php echo $value->city; ?> <?php echo $value->address; ?></p>
-          <?php if (!is_null($value->note)) : ?>
-            <p><?php echo $value->note; ?></p>
-          <?php endif; ?>
-      </td>
-      <td class="w3 cont_col">
-          <p><?php echo $value->phones; ?></p>
-          <?php if (!is_null($value->email)) : ?>
-            <p><a href="mailto:<?php echo $value->email; ?>"><?php echo $value->email; ?></a></p>
-          <?php endif; ?>
-      </td>
-      </tr>
-<?php endforeach; ?>
-</table>
+<div class="clear"></div>
 
 <div id="mapbox" style="width:auto;height:400px;"></div>
 
