@@ -58,7 +58,7 @@ $document->addScript('/media/com_office/js/office.js');
   </table>
 
   <div class="pagination">
-    <?php echo $this->pagination->getListFooter(); ?>
+    <?php  echo $this->pagination->getListFooter(); ?>
   </div>
 
 </form>
@@ -102,7 +102,7 @@ ymaps.ready(function(){
   geoObjects = [];
 
 <?php $count = 0; ?>
-<?php foreach ($this->offices as $value): ?>
+<?php foreach ($this->allOffices as $value): ?>
     geoObjects[<?php echo $count++; ?>] = new ymaps.Placemark([<?php echo $value->coords; ?>],
         getPointData('<?php echo $value->title; ?>', '<?php echo $value->city.' '.$value->address; ?>'),
         getPointOptions());

@@ -19,6 +19,7 @@ class OfficeViewOffices extends JViewLegacy
 {
 
 	protected $offices = [];
+	protected $allOffices = [];
 
 	/**
 	 * Display the Office view
@@ -33,10 +34,11 @@ class OfficeViewOffices extends JViewLegacy
 		$items = $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 
-		//var_dump($items);
-
 		// Assign data to the view
 		$this->offices = $items;
+
+		JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
+		$this->allOffices = OfficeHelper::getAllItems();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
