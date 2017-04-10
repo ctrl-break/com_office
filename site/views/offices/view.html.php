@@ -37,8 +37,8 @@ class OfficeViewOffices extends JViewLegacy
 		// Assign data to the view
 		$this->offices = $items;
 
-		JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
-		$this->allOffices = OfficeHelper::getAllItems();
+		//JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
+		$this->allOffices = $this->get('AllItems');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
