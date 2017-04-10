@@ -23,16 +23,12 @@ $document->addScript('/media/com_office/js/office.js');
 <?php echo JText::_('COM_OFFICE_MAIN_TITLE'); ?>
 
 <form class="com_office" action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
-  <select class="office_choise" name="">
-      <option value="">Пункт 1</option>
-      <option value="">Пункт 2</option>
+  <select class="office_choise" name="office_choise">
+      <option value="all">Все города</option>
+    <?php foreach ($this->cities as $value):  ?>
+      <option value="<?php echo $value->city; ?>"><?php echo $value->city; ?></option>
+    <?php endforeach; ?>
   </select>
-
-  <div class="showmap">
-    <label for="showmap">
-      <input type="checkbox" name="showmap"> Показать на карте
-    </label>
-  </div>
 
   <table class="table offices">
   <?php foreach ($this->offices as $value):  ?>

@@ -40,6 +40,9 @@ class OfficeViewOffices extends JViewLegacy
 		//JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
 		$this->allOffices = $this->get('AllItems');
 
+		$this->cities = $this->get('Cities');
+		//var_dump($this->cities);
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
