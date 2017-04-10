@@ -20,6 +20,7 @@ class OfficeViewOffices extends JViewLegacy
 
 	protected $offices = [];
 	protected $allOffices = [];
+	protected $cities = [];
 
 	/**
 	 * Display the Office view
