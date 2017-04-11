@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter">
+    <field
+      name="search"
+      type="text"
+      label="COM_CONTENT_FILTER_SEARCH_LABEL"
+      description="COM_CONTENT_FILTER_SEARCH_DESC"
+      hint="JSEARCH_FILTER"
+    />
+    <field
+                	name="city"
+                	type="city"
+                	label="COM_OFFICE_FILTER_CITY"
+                	description="COM_OFFICE_FILTER_CITY_DESC"
+                	onchange="this.form.submit();"
+                	>
+            		<option value="">JOPTION_SELECT_CITY</option>
+        	</field>
+	</fields>
+</form>

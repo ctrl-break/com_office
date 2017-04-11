@@ -23,12 +23,13 @@ $document->addScript('/media/com_office/js/office.js');
 <?php echo JText::_('COM_OFFICE_MAIN_TITLE'); ?>
 
 <form class="com_office" action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
-  <select class="office_choise" name="office_choise">
+  <select class="office_choise" name="office_choise" onchange="document.adminForm.submit();">
       <option value="all">Все города</option>
     <?php foreach ($this->cities as $value):  ?>
       <option value="<?php echo $value->city; ?>"><?php echo $value->city; ?></option>
     <?php endforeach; ?>
   </select>
+  
 
   <table class="table offices">
   <?php foreach ($this->offices as $value):  ?>

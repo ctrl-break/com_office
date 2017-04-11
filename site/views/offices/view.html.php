@@ -22,6 +22,8 @@ class OfficeViewOffices extends JViewLegacy
 	protected $allOffices = [];
 	protected $cities = [];
 
+	protected $state;
+
 	/**
 	 * Display the Office view
 	 *
@@ -31,19 +33,26 @@ class OfficeViewOffices extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-
 		$items = $this->get('Items');
-		$this->pagination	= $this->get('Pagination');
 
-		// Assign data to the view
 		$this->offices = $items;
+		$this->pagination	= $this->get('Pagination');
+		$this->state         = $this->get('State');
 
 		//JLoader::register('OfficeHelper', JPATH_COMPONENT . '/helpers/office.php');
-		$this->allOffices = $this->get('AllItems');
+
 
 		$this->cities = $this->get('Cities');
 		//var_dump($this->cities);
 
+		$this->filterForm = $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
+
+		if ($this->filterForm !== 'all') {
+			$this->allOffices = $items;
+		} else{
+			$this->allOffices = $this->get('AllItems');
+		}
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
