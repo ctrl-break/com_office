@@ -66,7 +66,6 @@ class OfficeModelOffices extends JModelList
 
         $query->order('city ASC');
 
-        //var_dump($query);
         return $query;
     }
 

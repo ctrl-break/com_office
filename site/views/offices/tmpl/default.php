@@ -26,11 +26,10 @@ $document->addScript('/media/com_office/js/office.js');
   <select class="office_choise" name="office_choise" onchange="document.adminForm.submit();">
       <option value="all">Все города</option>
     <?php foreach ($this->cities as $value):  ?>
-      <option value="<?php echo $value->city; ?>" <?php if ($value->city == $this->filter['city']) echo 'selected'; ?>>
-        <?php echo $value->city; ?>
+      <option value="<?php echo $value->city; ?>"
+        <?php if ($value->city == $this->activeFilters['city']) echo 'selected'; ?>>
+            <?php echo $value->city; ?>
       </option>
-      <?php //var_dump($value->city); ?>
-      <?php //var_dump($this->filter[0]); ?>
     <?php endforeach; ?>
 
 

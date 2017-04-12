@@ -23,7 +23,6 @@ class OfficeViewOffices extends JViewLegacy
 	protected $cities = [];
 
 	protected $state;
-	protected $filter;
 
 	/**
 	 * Display the Office view
@@ -45,15 +44,12 @@ class OfficeViewOffices extends JViewLegacy
 
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
-		$this->filter = $this->activeFilters;
 
 		if ($this->filterForm !== 'all') {
 			$this->allOffices = $items;
 		} else{
 			$this->allOffices = $this->get('AllItems');
 		}
-		//var_dump($this->activeFilters);
-		//var_dump($this->filter);
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
