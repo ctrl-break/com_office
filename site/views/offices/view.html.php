@@ -45,7 +45,7 @@ class OfficeViewOffices extends JViewLegacy
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
-		if ($this->filterForm !== 'all') {
+		if ($this->activeFilters['city'] !== 'all') {
 			$this->allOffices = $items;
 		} else{
 			$this->allOffices = $this->get('AllItems');
