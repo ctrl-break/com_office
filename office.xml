@@ -39,9 +39,10 @@
 		<folder>helpers</folder>
 	</files>
 
-        <languages folder="site/language">
+  <languages folder="site/language">
 		<language tag="en-GB">en-GB/en-GB.com_office.ini</language>
-        </languages>
+		<language tag="ru-RU">ru-RU/ru-RU.com_office.ini</language>
+  </languages>
 
 	<media destination="com_office" folder="media">
 		<filename>index.html</filename>
@@ -78,7 +79,9 @@
 		</files>
 		<languages folder="admin/language">
         		<language tag="en-GB">en-GB/en-GB.com_office.ini</language>
-                        <language tag="en-GB">en-GB/en-GB.com_office.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_office.sys.ini</language>
+        		<language tag="ru-RU">ru-RU/ru-RU.com_office.ini</language>
+            <language tag="ru-RU">ru-RU/ru-RU.com_office.sys.ini</language>
 		</languages>
 	</administration>
 
