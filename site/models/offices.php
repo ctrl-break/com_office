@@ -38,10 +38,10 @@ class OfficeModelOffices extends JModelList
     {
 
           $mainframe =JFactory::getApplication();
-  		     $city = $mainframe->getUserStateFromRequest( "office_choise", 'office_choise', 'all' );
+  		    $city = $mainframe->getUserStateFromRequest( "office_choise", 'office_choise', 'all' );
 
             //$city = $this->getUserStateFromRequest($this->context . '.filter.city', 'filter_city');
-            $this->setState('filter.city', $city);
+          $this->setState('filter.city', $city);
     }
 
     protected function getListQuery()
@@ -59,15 +59,14 @@ class OfficeModelOffices extends JModelList
         // Filter: like / search
     		$filter = $this->getState('filter.city');
 
-    		if (!empty($filter) || $filter != 'all')
+    		if (!empty($filter) && $filter != 'all')
     		{
     			$query->where('cat.title = "'.$filter.'"');
     		}
 
         $query->order('city ASC');
 
-        var_dump($filter);
-
+        //var_dump($query);
         return $query;
     }
 
