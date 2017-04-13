@@ -17,8 +17,3 @@ CREATE TABLE `#__office` (
 	ENGINE =MyISAM
 	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;
-
-INSERT INTO `#__office` (`title`, `address`, `phones`, `published`) VALUES
-('Office1', 'addr', '8437532', 1),
-('Office2', 'addr2', '22222', 1),
-('Office3', 'addr3', '3333', 0);

@@ -4,6 +4,8 @@
 
 .offices p{
   margin-bottom: 3px;
+  padding-top: 0;
+  padding-bottom: 2px;
 }
 
 .offices{
@@ -13,8 +15,23 @@
   border-spacing: 1px 10px;
 }
 
+.office_choise_wrap{
+  width: 100%;
+  padding: 10px;
+  background-color: #b3def8;
+}
+
+.office_choise{
+  background-color: #fff;
+  padding: 5px 20px;
+  width: 98%;
+  margin: 0 auto;
+  height: 40px;
+}
+
 .offices tr, .offices td{
   border: none;
+  border-top: none;
 }
 
 .offices tr{

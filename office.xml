@@ -6,7 +6,7 @@
 	<creationDate>April 2017</creationDate>
 	<author>fox</author>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.12</version>
+	<version>0.0.13</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_OFFICE_DESCRIPTION</description>
 

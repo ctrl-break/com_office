@@ -98,6 +98,32 @@ class OfficeModelOffices extends JModelList
 				return $db->loadObjectList();
     }
 
+    public function getCityItems($city)
+    {
+        // Initialize variables.
+        $db = JFactory::getDbo();
+        $query = $db->getQuery(true);
+
+				$query->select('off.id, off.title, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
+
+	      $query->from('#__office as off');
+
+	      $query->join('INNER', '#__categories AS cat ON off.catid = cat.id ');
+
+	      $query->where('off.published = 1');
+
+        //$query->where('city = ', $city);
+        $query->where('cat.title = "'.$city.'"');
+
+        $query->order('city ASC');
+
+        $db->setQuery($query);
+
+        //var_dump($query);
+
+				return $db->loadObjectList();
+    }
+
     public function getCities()
     {
         // Initialize variables.

@@ -33,11 +33,10 @@ class OfficeViewOffices extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		$items = $this->get('Items');
 
-		$this->offices = $items;
+		$this->offices = $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
-		$this->state         = $this->get('State');
+		$this->state = $this->get('State');
 
 		$this->cities = $this->get('Cities');
 		//var_dump($this->offices);
@@ -45,10 +44,11 @@ class OfficeViewOffices extends JViewLegacy
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
-		if ($this->activeFilters['city'] !== 'all') {
-			$this->allOffices = $items;
-		} else{
+		if ($this->activeFilters['city'] === 'all') {
 			$this->allOffices = $this->get('AllItems');
+		} else {
+			$model = $this->getModel();
+			$this->allOffices = $model->getCityItems( $this->activeFilters['city'] );
 		}
 
 		// Check for errors.
