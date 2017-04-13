@@ -124,8 +124,9 @@ ymaps.ready(function(){
     clusterer.add(geoObjects);
     mapbox.geoObjects.add(clusterer);
 
-    mapbox.setBounds(clusterer.getBounds(), {checkZoomRange:true}).then(function(){ if(mapbox.getZoom() > 10) mapbox.setZoom(10);});
+    mapbox.setBounds(clusterer.getBounds(), {checkZoomRange:true}).then(function(){ if(mapbox.getZoom() > 14) mapbox.setZoom(14);});
 
+    mapbox.behaviors.disable('scrollZoom');
 });
 </script>
 
