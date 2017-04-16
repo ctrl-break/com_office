@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS `#__office`;
 CREATE TABLE `#__office` (
 	`id`       INT(11)     NOT NULL AUTO_INCREMENT,
 	`title` TINYTEXT NOT NULL,
+	`postcode` INT(8),
 	`address` TINYTEXT NOT NULL,
 	`note` TINYTEXT,
 	`phones` TINYTEXT NOT NULL,

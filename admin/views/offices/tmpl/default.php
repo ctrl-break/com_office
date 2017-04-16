@@ -40,6 +40,10 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			</th>
 
 			<th width="10%">
+				<?php echo JText::_('COM_OFFICE_POSTCODE'); ?>
+			</th>
+
+			<th width="10%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_CITY', 'catid', $listDirn, $listOrder); ?>
 			</th>
 
@@ -50,7 +54,7 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="20%">
 				<?php echo JText::_('COM_OFFICE_PHONES'); ?>
 			</th>
-			<th width="20%">
+			<th width="10%">
 				<?php echo JText::_('COM_OFFICE_EMAIL'); ?>
 			</th>
 
@@ -83,6 +87,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_OFFICE_EDIT_OFFICE'); ?>">
 								<?php echo $row->title; ?>
 							</a>
+						</td>
+						<td>
+								<?php echo $row->postcode; ?>
 						</td>
 						<td>
 								<?php echo OfficeHelper::getCategoryName($row->catid); ?>
