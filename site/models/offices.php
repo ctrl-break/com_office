@@ -57,7 +57,7 @@ class OfficeModelOffices extends JModelList
     {
         $query = parent::getListQuery();
 
-        $query->select('off.id, off.title, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
+        $query->select('off.id, off.title, off.postcode, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
 
         $query->from('#__office as off');
 
@@ -84,7 +84,7 @@ class OfficeModelOffices extends JModelList
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
 
-				$query->select('off.id, off.title, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
+				$query->select('off.id, off.title, off.postcode, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
 
 	      $query->from('#__office as off');
 
@@ -104,7 +104,7 @@ class OfficeModelOffices extends JModelList
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
 
-				$query->select('off.id, off.title, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
+				$query->select('off.id, off.title, off.postcode, off.address, off.note, off.phones, off.email, off.coords, cat.title as city');
 
 	      $query->from('#__office as off');
 

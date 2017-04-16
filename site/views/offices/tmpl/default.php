@@ -11,26 +11,25 @@ JHtml::_('behavior.framework');
 
 JHtml::_('jquery.framework');
 
-
 $document = JFactory::getDocument();
 $document->addStyleSheet('/media/com_office/css/com_office.css');
 $document->addScript('//api-maps.yandex.ru/2.1/?lang=ru-RU');
 $document->addScript('/media/com_office/js/office.js');
-
-
 
 ?>
 <div class="office_box">
 
 <h2><?php echo JText::_('COM_OFFICE_MAIN_TITLE'); ?></h2>
 
-<form class="com_office" action="<?php echo htmlspecialchars(JUri::getInstance()->toString());?>" method="post" id="adminForm" name="adminForm">
+<form class="com_office" action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" id="adminForm" name="adminForm">
   <div class="office_choise_wrap">
   <select class="office_choise" name="office_choise" onchange="document.adminForm.submit();">
       <option value="all">Все города</option>
     <?php foreach ($this->cities as $value):  ?>
       <option value="<?php echo $value->city; ?>"
-        <?php if ($value->city == $this->activeFilters['city']) echo 'selected'; ?>>
+        <?php if ($value->city == $this->activeFilters['city']) {
+    echo 'selected';
+} ?>>
             <?php echo $value->city; ?>
       </option>
     <?php endforeach; ?>
@@ -45,13 +44,19 @@ $document->addScript('/media/com_office/js/office.js');
         </td>
         <td class="w65 addr_col">
             <p><strong><?php echo $value->title; ?></strong></p>
-            <p><?php echo $value->city; ?> <?php echo $value->address; ?></p>
+            <p>
+              <?php if (!is_null($value->postcode)) {
+                      echo $value->postcode . ", ";
+                } ?>
+                <?php echo $value->city . ", "; ?>
+                <?php echo $value->address; ?>
+            </p>
             <?php if (!is_null($value->note)) : ?>
               <p><?php echo $value->note; ?></p>
             <?php endif; ?>
         </td>
         <td class="w3 cont_col">
-            <?php $value->phones = str_replace(",", "<br>", $value->phones); ?>
+            <?php $value->phones = str_replace(',', '<br>', $value->phones); ?>
             <p><?php echo $value->phones; ?></p>
             <?php if (!is_null($value->email)) : ?>
               <p><a href="mailto:<?php echo $value->email; ?>"><?php echo $value->email; ?></a></p>
@@ -63,8 +68,8 @@ $document->addScript('/media/com_office/js/office.js');
 
   <div class="pagination">
     <?php  if (isset($this->pagination)) {
-              echo $this->pagination->getListFooter();
-            };  ?>
+    echo $this->pagination->getListFooter();
+}  ?>
   </div>
 
 </form>
