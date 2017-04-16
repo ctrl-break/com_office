@@ -83,6 +83,7 @@ class OfficeViewOffices extends JViewLegacy
 		JToolBarHelper::addNew('office.add');
 		JToolBarHelper::editList('office.edit');
 		JToolBarHelper::deleteList('', 'offices.delete');
+		JToolBarHelper::preferences('com_office');
 	}
 	/**
 	 * Method to set up the document properties

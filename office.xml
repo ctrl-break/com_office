@@ -6,7 +6,7 @@
 	<creationDate>April 2017</creationDate>
 	<author>fox</author>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.14</version>
+	<version>0.0.15</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_OFFICE_DESCRIPTION</description>
 
@@ -63,6 +63,7 @@
 			<filename>index.html</filename>
 			<filename>office.php</filename>
 			<filename>controller.php</filename>
+			<filename>config.xml</filename>
 			<filename>access.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>

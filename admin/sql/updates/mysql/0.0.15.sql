@@ -1,0 +1,1 @@
+ALTER TABLE `#__office` ADD `params` VARCHAR(1024) NOT NULL DEFAULT '';
