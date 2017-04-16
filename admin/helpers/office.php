@@ -26,15 +26,15 @@ abstract class OfficeHelper
 	 */
 	public static function addSubmenu($submenu)
 	{
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_OFFICE_SUBMENU_MESSAGES'),
-			'index.php?option=com_office',
-			$submenu == 'messages'
+			'index.php?option=com_office&view=offices',
+			$submenu == 'offices'
 		);
 
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_OFFICE_SUBMENU_CATEGORIES'),
-			'index.php?option=com_categories&view=categories&extension=com_office',
+			'index.php?option=com_categories&extension=com_office',
 			$submenu == 'categories'
 		);
 

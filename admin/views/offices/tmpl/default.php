@@ -17,17 +17,21 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 //var_dump($this);
 ?>
 <form action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
-	<div class="row-fluid">
-		<div class="span6">
-			<?php echo JText::_('COM_OFFICE_OFFICES_FILTER'); ?>
-			<?php
-				echo JLayoutHelper::render(
-					'joomla.searchtools.default',
-					array('view' => $this)
-				);
-			?>
-		</div>
+	<div id="j-sidebar-container" class="span2">
+	    <?php echo $this->sidebar; ?>
 	</div>
+	<div id="j-main-container" class="span10">
+		<div class="row-fluid">
+			<div class="span6">
+				<?php echo JText::_('COM_OFFICE_OFFICES_FILTER'); ?>
+				<?php
+					echo JLayoutHelper::render(
+						'joomla.searchtools.default',
+						array('view' => $this)
+					);
+				?>
+			</div>
+		</div>
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
@@ -119,4 +123,6 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
 	<?php echo JHtml::_('form.token'); ?>
+
+	</div>
 </form>

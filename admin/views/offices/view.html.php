@@ -54,6 +54,7 @@ class OfficeViewOffices extends JViewLegacy
 
 		// Set the toolbar and number of found items
 		$this->addToolBar();
+		$this->sidebar = JHtmlSidebar::render();
 
 		// Display the template
 		parent::display($tpl);
