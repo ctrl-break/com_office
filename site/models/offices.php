@@ -43,9 +43,11 @@ class OfficeModelOffices extends JModelList
             //$city = $this->getUserStateFromRequest($this->context . '.filter.city', 'filter_city');
           $this->setState('filter.city', $city);
 
+          $config = JComponentHelper::getParams('com_office');
+  				$pagination_limit = $config->get('pagination_limit');
 
           // List state information
-          $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', 5);
+          $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $pagination_limit);
           $this->setState('list.limit', $limit);
 
           $limitstart = JFactory::getApplication()->input->getInt('limitstart', 0);

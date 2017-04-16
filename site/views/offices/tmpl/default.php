@@ -68,8 +68,8 @@ $document->addScript('/media/com_office/js/office.js');
 
   <div class="pagination">
     <?php  if (isset($this->pagination)) {
-    echo $this->pagination->getListFooter();
-}  ?>
+              echo $this->pagination->getPagesLinks();
+            }  ?>
   </div>
 
 </form>

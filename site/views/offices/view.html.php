@@ -35,7 +35,9 @@ class OfficeViewOffices extends JViewLegacy
 	{
 
 		$this->offices = $this->get('Items');
+
 		$this->pagination	= $this->get('Pagination');
+
 		$this->state = $this->get('State');
 
 		$this->cities = $this->get('Cities');
