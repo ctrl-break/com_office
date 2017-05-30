@@ -14,7 +14,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 $listOrder     = $this->escape($this->filter_order);
 $listDirn      = $this->escape($this->filter_order_Dir);
-//var_dump($this);
+//var_dump($listDirn);
 ?>
 <form action="index.php?option=com_office&view=offices" method="post" id="adminForm" name="adminForm">
 	<div id="j-sidebar-container" class="span2">
@@ -62,11 +62,14 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 				<?php echo JText::_('COM_OFFICE_EMAIL'); ?>
 			</th>
 
-			<th width="5%">
+			<th width="3%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_PUBLISHED', 'published', $listDirn, $listOrder); ?>
 			</th>
 			<th width="2%">
 				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_ID', 'id', $listDirn, $listOrder); ?>
+			</th>
+			<th width="2%">
+				<?php echo JHtml::_('grid.sort', 'COM_OFFICE_SORT', 'sort', $listDirn, $listOrder); ?>
 			</th>
 		</tr>
 		</thead>
@@ -112,6 +115,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>
+						</td>
+						<td align="center">
+							<?php echo $row->sort; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

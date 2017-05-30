@@ -31,7 +31,8 @@ class OfficeModelOffices extends JModelList
 			$config['filter_fields'] = array(
 				'id',
 				'title',
-				'published'
+				'published',
+				'sort'
 			);
 		}
 
@@ -75,7 +76,7 @@ class OfficeModelOffices extends JModelList
 		}
 
 		// Add the list ordering clause.
-		$orderCol	= $this->state->get('list.ordering', 'catid');
+		$orderCol	= $this->state->get('list.ordering', 'sort, catid');
 		$orderDirn 	= $this->state->get('list.direction', 'asc');
 
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));

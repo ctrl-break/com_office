@@ -79,5 +79,16 @@
 				class="inputbox"
 				default=""
 				/>
+		<field
+						name="sort"
+						type="text"
+						label="COM_OFFICE_OFFICE_SORT_LABEL"
+						description="COM_OFFICE_OFFICE_SORT_DESC"
+						size="40"
+						class="inputbox"
+						required="true"
+						default="1"
+						/>
+
 	</fieldset>
 </form>
